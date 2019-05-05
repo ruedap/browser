@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="app"></div>
+  <script src="https://unpkg.com/bowser@2.4.0/es5.js"></script>
+  <script>
+    const b = bowser.getParser(window.navigator.userAgent);
+    const r = b.getResult();
+    console.log(r);
+    const el = document.querySelector('#app')
+    el.innerHTML = `
+      <h1>${r.browser.name} ${r.browser.version}</h1>
+      <h2>${r.os.name} ${r.os.versionName} ${r.os.version}</h2>
+      <h3>${r.platform.type}, ${r.platform.vendor}, ${r.platform.model}</h3>
+      <h4>${r.engine.name} ${r.platform.version}</h4>
+    `;
+  </script>
+</body>
+</html>
